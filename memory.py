@@ -224,6 +224,7 @@ class Memory(object):
     with tf.device(self.var_cache_device):
       fetched_keys = tf.gather(self.mem_keys, fetched_idxs, name='fetched_keys')
       fetched_vals = tf.gather(self.mem_vals, fetched_idxs, name='fetched_vals')
+    self.fetched_idxs = fetched_idxs
 
     # do memory updates here
     fetched_keys_upd = update_keys + fetched_keys  # Momentum-like update
